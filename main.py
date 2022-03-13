@@ -32,7 +32,7 @@ sub_phone = r'+7(\2)\3-\4-\5 \6\7'
 pattern_FCs = r'^(\w+)[,\s]?(\w+)(,|\s)?(\w+)?'
 sub_FCs = r"\1,\2,\4"
 
-
+# привел к требуемому формату
 new_contacts_list = []
 for i in contacts_list:
     line = ','.join(i[0:3])
@@ -41,6 +41,8 @@ for i in contacts_list:
     result = true_name.split(',') + true_phone.split(',')
     new_contacts_list.append(result)
 
+
+# создал список уникальных объектов
 check_list = []
 for i in range(len(new_contacts_list)):
     temp_list = [new_contacts_list[i][0], new_contacts_list[i][1]]
@@ -61,7 +63,7 @@ for i in range(len(new_contacts_list)):
         # print('has been added => ' + man_name)
         check_list.append(temp_list)
 
-
+# создал список списков с требуемой информации из инстанций классов
 contacts_list = []
 for i in people_list:
     new_list = [i.first_name, i.second_name, i.third_name, i.phone]
