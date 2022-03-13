@@ -1,12 +1,11 @@
 # читаем адресную книгу в формате CSV в список contacts_list
 import csv
-from pprint import pprint
 import re
 
 with open("phonebook_raw.csv", encoding="utf-8") as f:
   rows = csv.reader(f, delimiter=",")
   contacts_list = list(rows)
-# pprint(contacts_list[1])
+
 
 class People:
     instances = []
@@ -64,19 +63,17 @@ for i in range(len(new_contacts_list)):
 
 
 contacts_list = []
-print(people_list)
 for i in people_list:
     new_list = [i.first_name, i.second_name, i.third_name, i.phone]
     contacts_list.append(new_list)
-print(contacts_list)
 
 
 # TODO 2: сохраните получившиеся данные в другой файл
-# код для записи файла в формате CSV
+
 with open("phonebook.csv", "w", newline='') as f:
   datawriter = csv.writer(f, delimiter=',')
   datawriter.writerows(contacts_list)
-
+  print('Миссия завершена')
 
 
 # if __name__ == '__main__':
