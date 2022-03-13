@@ -73,7 +73,7 @@ print(contacts_list)
 
 # TODO 2: сохраните получившиеся данные в другой файл
 # код для записи файла в формате CSV
-with open("phonebook.csv", "w") as f:
+with open("phonebook.csv", "w", newline='') as f:
   datawriter = csv.writer(f, delimiter=',')
   datawriter.writerows(contacts_list)
 
